@@ -7,16 +7,13 @@
       "create_alias": [ "alias", "Create an alias. The first argument is the alias, and the remaining arguments should be a command to be issued when the alias is spoken, followed by arguments." ],
       "get_help": [
         "help",
-        "Display a listing of builtin and script commands. By default shows help for built-ins and scripts. Say \"help built-ins\" or \"help scripts\" to restrict output type, or say \"help <command>\" to get verbose help for a specific command."],
+        "Display a listing of builtin and script commands. By default shows help for built-ins and scripts. Say \"##get_help## built-ins\" or \"##get_help## scripts\" to restrict output type, or say \"##get_help## <command>\" to get verbose help for a specific command."
+      ],
         "input_text"
         :
         [ "input", "Send the arguments to the currectly-focused window element as if they were typed from the keyboard." ],
-        "interactive_mode"
-        :
-        [ "interactive", "Enter interactive mode. In this mode, all spoken words are treated as if they are preceeded by the 'input' command." ],
-        "list_items"
-        :
-        [ "list", "By default, lists the currently running applications that have windows. Can also list applications in the PATH environment variable ('list applications') or can list currently defined aliases ('list aliases')." ],
+      "interactive_mode": [ "interactive", "Enter interactive mode. In this mode, all spoken words are treated as if they are preceeded by the 'input' command. You can exit interactive mode by saying \"##command_mode##\"." ],
+      "list_items": [ "list", "By default, lists the currently running applications that have windows. Can also list applications in the PATH environment variable ('##list_items## applications') or can list currently defined aliases ('##list_items## aliases')." ],
         "press_enter"
         :
         [ "enter", "Send an 'enter' keypress to the currently focused window element" ],
@@ -26,9 +23,7 @@
         "show_application"
         :
         [ "show", "Bring the specified application to the foreground. This will choose the first application that contains the arguments as a substring of the window title or the executable name of the application." ],
-        "suspend_execution"
-        :
-        [ "suspend", "Suspend execution of commands. In this mode, the only command that will be executed is the 'resume' command" ],
+      "suspend_execution": [ "suspend", "Suspend execution of commands. In this mode, the only command that will be executed is the '##resume_execution##' command" ],
         "terminate"
         :
         [ "terminate", "Exit Gremlin." ],

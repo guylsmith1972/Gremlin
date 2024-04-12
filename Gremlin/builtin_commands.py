@@ -23,7 +23,7 @@ def list_items(transcript, args):
     elif mode == 'aliases':
         aliases.list()
     else:
-        list_command = get_config('commands.builtins.list_items')
+        list_command = get_config('commands.builtins.list_items')[0]
         print(f'Unknown argument "{mode}" for "{list_command}" command')
 
     
@@ -38,7 +38,7 @@ def show_application(transcript, args):
 
 
 def suspend_execution(transcript, args):
-    resume_command = get_config('commands.builtins.resume_execution')
+    resume_command = get_config('commands.builtins.resume_execution')[0]
     print(f'Suspending command execution except for "{resume_command}" command')
     runtime.set_mode('suspended')
 
@@ -74,7 +74,7 @@ def press_enter(transcript, args):
     
 
 def interactive_mode(transcript, args):
-    print(f"Entering interactive mode. Say {get_config('commands.builtins.command_mode')} or {get_config('commands.builtins.suspend_execution')} to switch to a different mode.")
+    print(f"Entering interactive mode. Say {get_config('commands.builtins.command_mode')[0]} or {get_config('commands.builtins.suspend_execution')[0]} to switch to a different mode.")
     runtime.set_mode('interactive')
 
 def command_mode(transcript, args):
