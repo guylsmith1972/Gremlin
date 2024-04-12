@@ -5,9 +5,11 @@
     "builtins": {
       "command_mode": [ "command", "Enter command mode. In this mode, the first word you speak is interpreted as a command, and the remaining words are arguments." ],
       "create_alias": [ "alias", "Create an alias. The first argument is the alias, and the remaining arguments should be a command to be issued when the alias is spoken, followed by arguments." ],
+      "delete_alias": ["delete", "Delete an alias. Give the name of the alias as the argument."],
+      "find_item": ["find", "Find an application (running or available)."],
       "get_help": [
         "help",
-        "Display a listing of builtin and script commands. By default shows help for built-ins and scripts. Say \"##get_help## built-ins\" or \"##get_help## scripts\" to restrict output type, or say \"##get_help## <command>\" to get verbose help for a specific command."
+        "Display a listing of builtin and script commands. By default shows help for aliases, built-ins and scripts. Say \"##get_help## aliases\", \"##get_help## built-ins\" or \"##get_help## scripts\" to restrict output type, or say \"##get_help## <command>\" to get verbose help for a specific command."
       ],
         "input_text"
         :

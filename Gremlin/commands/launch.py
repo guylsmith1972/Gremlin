@@ -1,6 +1,7 @@
 import sys
 import subprocess
 
+
 def launch_application():
     # Split the command-line arguments into parts
     parts = sys.argv[1:]

@@ -2,7 +2,6 @@ from configuration import get_config
 from pywinauto import Desktop, Application
 import os
 import psutil
-import stat
 import threading
 import time
 
@@ -33,6 +32,23 @@ def find_executables_in_path():
     return executables
 
 available_executables = find_executables_in_path()
+
+
+def find_apps(substring, applist):
+    matches = []
+    for entry in applist:
+        if substring.lower() in entry.lower():
+            matches.append(entry)
+            
+    return matches
+
+
+def find_running_apps(substring):
+    return find_apps(substring, [v[1] for v in running_applications])
+
+
+def find_available_apps(substring):
+    return find_apps(substring, available_executables)
 
 
 def list_running_apps():
