@@ -31,7 +31,6 @@
     <Compile Include="commands\launch.py" />
     <Compile Include="commands\open.py" />
     <Compile Include="configuration.py" />
-    <Compile Include="eyes.py" />
     <Compile Include="runtime.py" />
     <Compile Include="Gremlin.py" />
     <Compile Include="utility.py" />
@@ -85,6 +84,7 @@
     <Content Include="models\vosk-model-en-us-0.22--old\rnnlm\special_symbol_opts.conf" />
     <Content Include="models\vosk-model-en-us-0.22--old\rnnlm\special_symbol_opts.txt" />
     <Content Include="models\vosk-model-en-us-0.22--old\rnnlm\word_feats.txt" />
+    <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">

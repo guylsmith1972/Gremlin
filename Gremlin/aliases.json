@@ -1,13 +1,13 @@
 {
-    "aliases": "help aliases",
-    "chat": "open chat dot open ai dot com",
-    "defense": "open https://www.reddit.com/r/NonCredibleDefense/new/",
-    "email": "open mail dot google dot com",
-    "get": "open git hub dot com",
-    "indeed": "open indeed dot com",
-    "linkedin": "open linkedin dot com",
-    "mail": "open mail dot google dot com",
-    "market": "open market watch dot com",
-    "news": "open news dot google dot com",
-    "ukraine": "open https://www.reddit.com/r/UkraineWarVideoReport/new/"
+  "aliases": "help aliases",
+  "chat": "open chat dot open ai dot com",
+  "defense": "open https://www.reddit.com/r/NonCredibleDefense/new/",
+  "email": "open mail dot google dot com",
+  "get": "open git hub dot com",
+  "indeed": "open indeed dot com",
+  "linkedin": "open linkedin dot com",
+  "mail": "open mail dot google dot com",
+  "market": "open market watch dot com",
+  "news": "open news dot google dot com",
+  "ukraine": "open https://www.reddit.com/r/UkraineWarVideoReport/new/"
 }

@@ -99,10 +99,7 @@ def main():
             transcript = get_transcript(result, 'text')
             if transcript is not None and len(transcript) > 0:
                 print(transcript)
-                start_process_transcript_thread(transcript)        
-        # else:
-        #     partial = recognizer.PartialResult()
-        #     get_transcript(partial, 'partial')
+                start_process_transcript_thread(transcript)
 
 
 if __name__ == '__main__':
