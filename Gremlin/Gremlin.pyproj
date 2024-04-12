@@ -1,0 +1,95 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>14a5a101-c0fe-48a8-b052-bce53ded3d49</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>Gremlin.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>Gremlin</Name>
+    <RootNamespace>Gremlin</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="aliases.py" />
+    <Compile Include="applications.py" />
+    <Compile Include="audio.py" />
+    <Compile Include="builtin_commands.py" />
+    <Compile Include="commands\hello.py" />
+    <Compile Include="commands\launch.py" />
+    <Compile Include="commands\open.py" />
+    <Compile Include="configuration.py" />
+    <Compile Include="runtime.py" />
+    <Compile Include="Gremlin.py" />
+    <Compile Include="utility.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="commands\" />
+    <Folder Include="models\" />
+    <Folder Include="models\vosk-model-en-us-0.22--old\" />
+    <Folder Include="models\vosk-model-en-us-0.22--old\am\" />
+    <Folder Include="models\vosk-model-en-us-0.22--old\conf\" />
+    <Folder Include="models\vosk-model-en-us-0.22--old\graph\" />
+    <Folder Include="models\vosk-model-en-us-0.22--old\graph\phones\" />
+    <Folder Include="models\vosk-model-en-us-0.22--old\ivector\" />
+    <Folder Include="models\vosk-model-en-us-0.22--old\rescore\" />
+    <Folder Include="models\vosk-model-en-us-0.22--old\rnnlm\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="aliases.json" />
+    <Content Include="config.json" />
+    <Content Include="models\vosk-model-en-us-0.22--old\am\final.mdl" />
+    <Content Include="models\vosk-model-en-us-0.22--old\am\tree" />
+    <Content Include="models\vosk-model-en-us-0.22--old\conf\ivector.conf" />
+    <Content Include="models\vosk-model-en-us-0.22--old\conf\mfcc.conf" />
+    <Content Include="models\vosk-model-en-us-0.22--old\conf\model.conf" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\disambig_tid.int" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\HCLG.fst" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\num_pdfs" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\phones.txt" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\phones\align_lexicon.int" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\phones\align_lexicon.txt" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\phones\disambig.int" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\phones\disambig.txt" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\phones\optional_silence.csl" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\phones\optional_silence.int" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\phones\optional_silence.txt" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\phones\silence.csl" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\phones\word_boundary.int" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\phones\word_boundary.txt" />
+    <Content Include="models\vosk-model-en-us-0.22--old\graph\words.txt" />
+    <Content Include="models\vosk-model-en-us-0.22--old\ivector\final.dubm" />
+    <Content Include="models\vosk-model-en-us-0.22--old\ivector\final.ie" />
+    <Content Include="models\vosk-model-en-us-0.22--old\ivector\final.mat" />
+    <Content Include="models\vosk-model-en-us-0.22--old\ivector\global_cmvn.stats" />
+    <Content Include="models\vosk-model-en-us-0.22--old\ivector\online_cmvn.conf" />
+    <Content Include="models\vosk-model-en-us-0.22--old\ivector\splice.conf" />
+    <Content Include="models\vosk-model-en-us-0.22--old\README" />
+    <Content Include="models\vosk-model-en-us-0.22--old\rescore\G.carpa" />
+    <Content Include="models\vosk-model-en-us-0.22--old\rescore\G.fst" />
+    <Content Include="models\vosk-model-en-us-0.22--old\rnnlm\feat_embedding.final.mat" />
+    <Content Include="models\vosk-model-en-us-0.22--old\rnnlm\final.raw" />
+    <Content Include="models\vosk-model-en-us-0.22--old\rnnlm\special_symbol_opts.conf" />
+    <Content Include="models\vosk-model-en-us-0.22--old\rnnlm\special_symbol_opts.txt" />
+    <Content Include="models\vosk-model-en-us-0.22--old\rnnlm\word_feats.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

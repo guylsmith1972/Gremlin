@@ -1,0 +1,29 @@
+{
+  "commands": {
+    "prefix": null,
+    "directory": "commands",
+    "builtins": {
+      "command_mode": "command",
+      "create_alias": "alias",
+      "get_help": "help",
+      "input_text": "input",
+      "interactive_mode": "interactive",
+      "list_applications": "list",
+      "press_enter": "enter",
+      "resume_execution": "resume",
+      "show_application": "show",
+      "suspend_execution": "suspend",
+      "terminate": "terminate",
+      "web_search": "search"
+    }
+  },
+  "speech": {
+    "default": "https://alphacephei.com/vosk/models/vosk-model-en-us-0.22.zip",
+    "model": "vosk-model-en-us-0.22"
+  },
+  "applications": {
+    "monitoring": {
+      "interval": 1
+    }
+  }
+}
