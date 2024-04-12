@@ -12,6 +12,7 @@
     <Name>Gremlin</Name>
     <RootNamespace>Gremlin</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,7 @@
     <Compile Include="commands\launch.py" />
     <Compile Include="commands\open.py" />
     <Compile Include="configuration.py" />
+    <Compile Include="eyes.py" />
     <Compile Include="runtime.py" />
     <Compile Include="Gremlin.py" />
     <Compile Include="utility.py" />
@@ -83,6 +85,17 @@
     <Content Include="models\vosk-model-en-us-0.22--old\rnnlm\special_symbol_opts.conf" />
     <Content Include="models\vosk-model-en-us-0.22--old\rnnlm\special_symbol_opts.txt" />
     <Content Include="models\vosk-model-en-us-0.22--old\rnnlm\word_feats.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.10</Version>
+      <Description>env (Python 3.10 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
