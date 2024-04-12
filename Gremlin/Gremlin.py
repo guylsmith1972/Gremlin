@@ -67,7 +67,7 @@ def process_transcript(transcript):
             if command in builtin_commands.command_map:
                 print(f'executing builtin command: {command} with arguments: {args}')
                 print('-' * 79)
-                builtin_commands.command_map[command](transcript, args)
+                builtin_commands.command_map[command][0](transcript, args)
             else:
                 command += '.py'
                 print(f'executing dynamic command: {command} with arguments: {args}')
@@ -89,7 +89,7 @@ def main():
     # Initialize the recognizer
     stream, recognizer = audio.get_recognizer()
 
-    print("Listening...")
+    print(f"Listening. Say \"{get_config('commands.builtins.get_help')[0]}\" to get a listing of available voice commands.")
 
     # Process audio in real-time and handle the transcript
     while not runtime.get_exit():
