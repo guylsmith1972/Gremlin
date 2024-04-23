@@ -11,32 +11,32 @@ import subprocess
 import utility
 
 
-def clear_transcript(transcript, args):
+def clear_transcript(transcript, command, args):
     transcriber = Transcriber()
     transcriber.clear()
 
 
-def create_alias(transcript, args):
+def create_alias(transcript, command, args):
     keyword = args[0]
     replacement = args[1:]
     aliases.add(keyword, ' '.join(replacement))
 
     
-def chatter_mode(transcript, args):
+def chatter_mode(transcript, command, args):
     print('Entering chatter mode.')
     mode_chatter.set_instructions(' '.join(args))
-    runtime.set_mode('chatter')
+    set_mode(transcript, command, args)
     
 
-def command_mode(transcript, args):
+def command_mode(transcript, command, args):
     runtime.set_mode('command')
     
 
-def delete_alias(transcript, args):
+def delete_alias(transcript, command, args):
     aliases.remove(args[0])
 
     
-def find_item(transcript, args):
+def find_item(transcript, command, args):
     substring = ''.join(args)
     running_matches = applications.find_running_apps(substring)
     if len(running_matches) > 0:
@@ -52,7 +52,7 @@ def find_item(transcript, args):
             print(match)
     
 
-def get_help(transcript, args):
+def get_help(transcript, command, args):
     list_scripts = 1
     list_commands = 2
     list_aliases = 4
@@ -116,12 +116,7 @@ def get_help(transcript, args):
     utility.show_help(help_map)
 
 
-def interactive_mode(transcript, args):
-    print(f"Entering interactive mode. Say {get_config('commands.builtins.command_mode')[0]} or {get_config('commands.builtins.suspend_execution')[0]} to switch to a different mode.")
-    runtime.set_mode('interactive')
-
-        
-def input_text(transcript, args):
+def input_text(transcript, command, args):
     # Combine the array of strings into one single string with spaces
     text = ' '.join(args)
     
@@ -129,7 +124,7 @@ def input_text(transcript, args):
     pyautogui.write(text)
 
     
-def list_items(transcript, args):
+def list_items(transcript, command, args):
     mode = 'running'
 
     if args is not None and len(args) > 0:
@@ -146,26 +141,26 @@ def list_items(transcript, args):
         print(f'Unknown argument "{mode}" for "{list_command}" command')
 
 
-def press_enter(transcript, args):
+def press_enter(transcript, command, args):
     pyautogui.write('\n')    
 
 
-def query_llm(transcript, args):
+def query_llm(transcript, command, args):
     print('Submitting text to ollama')
     suggestion = llama.query_llm(transcript)
     print(f'Suggestion: {suggestion}')
     
-def resume_execution(transcript, args):
-    print('Resuming command execution')
-    runtime.set_mode('command')
+
+def set_mode(transcript, command, args):
+    runtime.set_mode(command)
 
 
-def show_application(transcript, args):
+def show_application(transcript, command, args):
     app_name = " ".join(args)
     applications.bring_app_to_foreground(app_name)
     
 
-def show_transcript(transcript, args):
+def show_transcript(transcript, command, args):
     transcriber = Transcriber()
     transcript = transcriber.get_transcript()
     print('-' * 79)
@@ -173,17 +168,11 @@ def show_transcript(transcript, args):
         print(line)
 
 
-def suspend_execution(transcript, args):
-    resume_command = get_config('commands.builtins.resume_execution')[0]
-    print(f'Suspending command execution except for "{resume_command}" command')
-    runtime.set_mode('suspended')
-
-
-def terminate(transcript, args):
+def terminate(transcript, command, args):
     runtime.set_exit(True)
     
     
-def web_search(transcript, args):
+def web_search(transcript, command, args):
     query_string = f'https://www.google.com/search?q={"+".join(args)}'
     command = ['python', './commands/open.py', query_string]
 
@@ -194,21 +183,21 @@ def web_search(transcript, args):
 command_map = {
      get_config('commands.builtins.chatter_mode')[0]: [chatter_mode, get_config('commands.builtins.chatter_mode')],
      get_config('commands.builtins.clear_transcript')[0]: [clear_transcript, get_config('commands.builtins.clear_transcript')],
-     get_config('commands.builtins.command_mode')[0]: [command_mode, get_config('commands.builtins.command_mode')],
+     get_config('commands.builtins.command_mode')[0]: [set_mode, get_config('commands.builtins.command_mode')],
      get_config('commands.builtins.create_alias')[0]: [create_alias, get_config('commands.builtins.create_alias')],
      get_config('commands.builtins.delete_alias')[0]: [delete_alias, get_config('commands.builtins.delete_alias')],
      get_config('commands.builtins.find_item')[0]: [find_item, get_config('commands.builtins.find_item')],     
      get_config('commands.builtins.get_help')[0]: [get_help, get_config('commands.builtins.get_help')],
      get_config('commands.builtins.input_text')[0]: [input_text, get_config('commands.builtins.input_text')],
-     get_config('commands.builtins.interactive_mode')[0]: [interactive_mode, get_config('commands.builtins.interactive_mode')],
+     get_config('commands.builtins.interactive_mode')[0]: [set_mode, get_config('commands.builtins.interactive_mode')],
      get_config('commands.builtins.list_items')[0]: [list_items, get_config('commands.builtins.list_items')],
      get_config('commands.builtins.create_alias')[0]: [create_alias, get_config('commands.builtins.create_alias')],
      get_config('commands.builtins.press_enter')[0]: [press_enter, get_config('commands.builtins.press_enter')],
      get_config('commands.builtins.query_llm')[0]: [query_llm, get_config('commands.builtins.query_llm')],
-     get_config('commands.builtins.resume_execution')[0]: [resume_execution, get_config('commands.builtins.resume_execution')],
+     get_config('commands.builtins.resume_execution')[0]: [set_mode, get_config('commands.builtins.resume_execution')],
      get_config('commands.builtins.show_application')[0]: [show_application, get_config('commands.builtins.show_application')],
      get_config('commands.builtins.show_transcript')[0]: [show_transcript, get_config('commands.builtins.show_transcript')],
-     get_config('commands.builtins.suspend_execution')[0]: [suspend_execution, get_config('commands.builtins.suspend_execution')],
+     get_config('commands.builtins.suspend_execution')[0]: [set_mode, get_config('commands.builtins.suspend_execution')],
      get_config('commands.builtins.terminate')[0]: [terminate, get_config('commands.builtins.terminate')],
      get_config('commands.builtins.web_search')[0]: [web_search, get_config('commands.builtins.web_search')],
 }

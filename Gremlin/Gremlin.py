@@ -25,7 +25,6 @@ def main():
     while not runtime.get_exit():
         extended, transcript = transcriber.extend()
         if extended:
-            print(transcript)
             start_process_transcript_thread(transcript)
 
 

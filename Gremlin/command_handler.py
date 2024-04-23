@@ -41,13 +41,13 @@ def execute(transcript, command, args, modeswitch_only=False):
         if runtime.is_modeswitch(command):
             print(f'Executing modeswitch command {command}')
             print('-' * 79)
-            builtin_commands.command_map[command][0](transcript, args)
+            builtin_commands.command_map[command][0](transcript, command, args)
             return True
     else:
         if command in builtin_commands.command_map:
             print(f'executing builtin command: {command} with arguments: {args}')
             print('-' * 79)
-            builtin_commands.command_map[command][0](transcript, args)
+            builtin_commands.command_map[command][0](transcript, command, args)
             return True
         else:
             command += '.py'

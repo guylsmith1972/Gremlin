@@ -10,19 +10,12 @@ must_exit = False
 current_mode = mode_command.process_transcript
 
 modes = {
-    'chatter': mode_chatter.process_transcript,
-    'command': mode_command.process_transcript,
-    'interactive':  mode_interactive.process_transcript,
-    'suspended': mode_suspended.process_transcript
-    }
-
-mode_commands = [
-    get_config("commands.builtins.chatter_mode")[0],
-    get_config("commands.builtins.command_mode")[0],
-    get_config("commands.builtins.interactive_mode")[0],
-    get_config("commands.builtins.resume_execution")[0],
-    get_config("commands.builtins.suspend_execution")[0],
-]
+    get_config('commands.builtins.chatter_mode')[0]: mode_chatter.process_transcript,
+    get_config('commands.builtins.command_mode')[0]: mode_command.process_transcript,
+    get_config('commands.builtins.interactive_mode')[0]:  mode_interactive.process_transcript,
+    get_config('commands.builtins.resume_execution')[0]: mode_command.process_transcript,
+    get_config('commands.builtins.suspend_execution')[0]: mode_suspended.process_transcript
+}
 
 command_prefix = get_config('commands.prefix')
 
@@ -45,4 +38,4 @@ def set_mode(new_mode):
 
 
 def is_modeswitch(command):
-    return command in mode_commands
+    return command in modes
