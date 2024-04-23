@@ -1,5 +1,6 @@
 from configuration import get_config
 from pywinauto import Desktop, Application
+
 import os
 import psutil
 import threading

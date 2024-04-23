@@ -3,35 +3,28 @@
     "prefix": null,
     "directory": "commands",
     "builtins": {
-      "command_mode": [ "command", "Enter command mode. In this mode, the first word you speak is interpreted as a command, and the remaining words are arguments." ],
-      "create_alias": [ "alias", "Create an alias. The first argument is the alias, and the remaining arguments should be a command to be issued when the alias is spoken, followed by arguments." ],
-      "delete_alias": ["delete", "Delete an alias. Give the name of the alias as the argument."],
-      "find_item": ["find", "Find an application (running or available)."],
+      "chatter_mode": [ "chatter", "Enter chatter mode and continuously submit the transcript via query_llm and analyze it according to the instructions in the parameters to this command.", "mode" ],
+      "clear_transcript": [ "clear", "Clear the current transcript.", "command" ],
+      "command_mode": [ "command", "Enter command mode. In this mode, the first word you speak is interpreted as a command, and the remaining words are arguments.", "mode" ],
+      "create_alias": [ "alias", "Create an alias. The first argument is the alias, and the remaining arguments should be a command to be issued when the alias is spoken, followed by arguments.", "command" ],
+      "delete_alias": [ "delete", "Delete an alias. Give the name of the alias as the argument.", "command" ],
+      "find_item": [ "find", "Find an application (running or available).", "command" ],
       "get_help": [
         "help",
-        "Display a listing of builtin and script commands. By default shows help for aliases, built-ins and scripts. Say \"##get_help## aliases\", \"##get_help## built-ins\" or \"##get_help## scripts\" to restrict output type, or say \"##get_help## <command>\" to get verbose help for a specific command."
+        "Display a listing of builtin and script commands. By default shows help for aliases, built-ins and scripts. Say \"##get_help## aliases\", \"##get_help## built-ins\", \"##get_help## commands\", \"##get_help## modes\", or \"##get_help## scripts\" to restrict output type, or say \"##get_help## <command>\" to get verbose help for a specific command.",
+        "command"
       ],
-        "input_text"
-        :
-        [ "input", "Send the arguments to the currectly-focused window element as if they were typed from the keyboard." ],
-      "interactive_mode": [ "interactive", "Enter interactive mode. In this mode, all spoken words are treated as if they are preceeded by the 'input' command. You can exit interactive mode by saying \"##command_mode##\"." ],
-      "list_items": [ "list", "By default, lists the currently running applications that have windows. Can also list applications in the PATH environment variable ('##list_items## applications') or can list currently defined aliases ('##list_items## aliases')." ],
-        "press_enter"
-        :
-        [ "enter", "Send an 'enter' keypress to the currently focused window element" ],
-        "resume_execution"
-        :
-        [ "resume", "Resume command mode after it has been suspended." ],
-        "show_application"
-        :
-        [ "show", "Bring the specified application to the foreground. This will choose the first application that contains the arguments as a substring of the window title or the executable name of the application." ],
-      "suspend_execution": [ "suspend", "Suspend execution of commands. In this mode, the only command that will be executed is the '##resume_execution##' command" ],
-        "terminate"
-        :
-        [ "terminate", "Exit Gremlin." ],
-        "web_search"
-        :
-        [ "search", "Perform a Google search using the arguments as the search query." ]
+      "input_text": [ "input", "Send the arguments to the currectly-focused window element as if they were typed from the keyboard.", "command" ],
+      "interactive_mode": [ "interactive", "Enter interactive mode. In this mode, all spoken words are treated as if they are preceeded by the 'input' command.", "mode" ],
+      "list_items": [ "list", "By default, lists the currently running applications that have windows. Can also list applications in the PATH environment variable ('##list_items## applications') or can list currently defined aliases ('##list_items## aliases').", "command" ],
+      "press_enter": [ "enter", "Send an 'enter' keypress to the currently focused window element", "command" ],
+      "query_llm": [ "chat", "Sumbit a query to an LLM.", "command" ],
+      "resume_execution": [ "resume", "Resume command mode after it has been suspended.", "mode" ],
+      "show_application": [ "show", "Bring the specified application to the foreground. This will choose the first application that contains the arguments as a substring of the window title or the executable name of the application.", "command" ],
+      "show_transcript": [ "transcript", "Print the accumulated transcript to console.", "command" ],
+      "suspend_execution": [ "suspend", "Suspend execution of commands.", "mode" ],
+      "terminate": [ "terminate", "Exit Gremlin.", "command" ],
+      "web_search": [ "search", "Perform a Google search using the arguments as the search query.", "command" ]
     }
   },
   "speech": {

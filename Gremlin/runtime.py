@@ -1,15 +1,30 @@
 from configuration import get_config
+import mode_chatter
+import mode_command
+import mode_interactive
+import mode_suspended
 
 
 must_exit = False
-mode = "command"
-valid_modes = ["command", "interactive", "suspended"]
+
+current_mode = mode_command.process_transcript
+
+modes = {
+    'chatter': mode_chatter.process_transcript,
+    'command': mode_command.process_transcript,
+    'interactive':  mode_interactive.process_transcript,
+    'suspended': mode_suspended.process_transcript
+    }
+
 mode_commands = [
+    get_config("commands.builtins.chatter_mode")[0],
     get_config("commands.builtins.command_mode")[0],
     get_config("commands.builtins.interactive_mode")[0],
     get_config("commands.builtins.resume_execution")[0],
     get_config("commands.builtins.suspend_execution")[0],
 ]
+
+command_prefix = get_config('commands.prefix')
 
 
 def set_exit(flag):
@@ -22,16 +37,12 @@ def get_exit():
 
 
 def set_mode(new_mode):
-    if new_mode in valid_modes:
-        global mode
-        mode = new_mode
+    if new_mode in modes:
+        global current_mode
+        current_mode = modes[new_mode]
     else:
         print(f"invalid mode request: {new_mode}")
 
 
-def get_mode():
-    return mode
-
-
-def is_mode_command(word):
-    return word in mode_commands
+def is_modeswitch(command):
+    return command in mode_commands

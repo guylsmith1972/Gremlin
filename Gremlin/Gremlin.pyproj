@@ -30,9 +30,16 @@
     <Compile Include="commands\hello.py" />
     <Compile Include="commands\launch.py" />
     <Compile Include="commands\open.py" />
+    <Compile Include="command_handler.py" />
     <Compile Include="configuration.py" />
+    <Compile Include="llama.py" />
+    <Compile Include="mode_chatter.py" />
+    <Compile Include="mode_command.py" />
+    <Compile Include="mode_interactive.py" />
+    <Compile Include="mode_suspended.py" />
     <Compile Include="runtime.py" />
     <Compile Include="Gremlin.py" />
+    <Compile Include="transcriber.py" />
     <Compile Include="utility.py" />
   </ItemGroup>
   <ItemGroup>
